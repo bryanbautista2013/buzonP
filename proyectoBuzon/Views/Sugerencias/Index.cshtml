@@ -1,0 +1,54 @@
+﻿@model IEnumerable<proyectoBuzon.Models.Sugerencias>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout_Cliente.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DescripcionS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdClNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTiposugNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdClNavigation.ApellidosCl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTiposugNavigation.NombreTipoq)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdS">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdS">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdS">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

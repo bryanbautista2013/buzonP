@@ -1,0 +1,65 @@
+﻿@model IEnumerable<proyectoBuzon.Models.TblCliente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CedulaCl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombresCl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApellidosCl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaNacimientoCl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelefonoCl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CorreoCl)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CedulaCl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombresCl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApellidosCl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaNacimientoCl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelefonoCl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CorreoCl)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdCl">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdCl">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdCl">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
